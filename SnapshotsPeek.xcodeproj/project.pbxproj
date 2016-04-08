@@ -1,0 +1,344 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6096DA8E1CB7F39200A8A110 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6096DA8D1CB7F39200A8A110 /* AppKit.framework */; };
+		6096DA901CB7F39200A8A110 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6096DA8F1CB7F39200A8A110 /* Foundation.framework */; };
+		6096DA941CB7F39300A8A110 /* SnapshotsPeek.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 6096DA931CB7F39300A8A110 /* SnapshotsPeek.xcscheme */; };
+		6096DA971CB7F39300A8A110 /* SnapshotsPeek.m in Sources */ = {isa = PBXBuildFile; fileRef = 6096DA961CB7F39300A8A110 /* SnapshotsPeek.m */; };
+		6096DAA91CB7F72E00A8A110 /* NSObject+ORSPSwizzleMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6096DAA81CB7F72E00A8A110 /* NSObject+ORSPSwizzleMethods.m */; };
+		6096DAAC1CB7F7BE00A8A110 /* IDEEditorContext+NavigationInsertion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6096DAAB1CB7F7BE00A8A110 /* IDEEditorContext+NavigationInsertion.m */; };
+		60F5E62D1CB7FD49000F3A15 /* NSFileManager+RecursiveFind.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F5E62C1CB7FD49000F3A15 /* NSFileManager+RecursiveFind.m */; };
+		60F5E6301CB80644000F3A15 /* SnapshotSnapGalleryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F5E62F1CB80644000F3A15 /* SnapshotSnapGalleryView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6096DA8A1CB7F39200A8A110 /* SnapshotsPeek.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapshotsPeek.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		6096DA8D1CB7F39200A8A110 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		6096DA8F1CB7F39200A8A110 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		6096DA931CB7F39300A8A110 /* SnapshotsPeek.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = SnapshotsPeek.xcscheme; path = SnapshotsPeek.xcodeproj/xcshareddata/xcschemes/SnapshotsPeek.xcscheme; sourceTree = SOURCE_ROOT; };
+		6096DA951CB7F39300A8A110 /* SnapshotsPeek.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SnapshotsPeek.h; sourceTree = "<group>"; };
+		6096DA961CB7F39300A8A110 /* SnapshotsPeek.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnapshotsPeek.m; sourceTree = "<group>"; };
+		6096DA981CB7F39300A8A110 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6096DAA71CB7F72E00A8A110 /* NSObject+ORSPSwizzleMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ORSPSwizzleMethods.h"; sourceTree = "<group>"; };
+		6096DAA81CB7F72E00A8A110 /* NSObject+ORSPSwizzleMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ORSPSwizzleMethods.m"; sourceTree = "<group>"; };
+		6096DAAB1CB7F7BE00A8A110 /* IDEEditorContext+NavigationInsertion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IDEEditorContext+NavigationInsertion.m"; sourceTree = "<group>"; };
+		60F5E62A1CB7FB39000F3A15 /* XcodeRuntime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XcodeRuntime.h; sourceTree = "<group>"; };
+		60F5E62B1CB7FD49000F3A15 /* NSFileManager+RecursiveFind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+RecursiveFind.h"; sourceTree = "<group>"; };
+		60F5E62C1CB7FD49000F3A15 /* NSFileManager+RecursiveFind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+RecursiveFind.m"; sourceTree = "<group>"; };
+		60F5E62E1CB80644000F3A15 /* SnapshotSnapGalleryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapshotSnapGalleryView.h; sourceTree = "<group>"; };
+		60F5E62F1CB80644000F3A15 /* SnapshotSnapGalleryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapshotSnapGalleryView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6096DA881CB7F39200A8A110 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6096DA8E1CB7F39200A8A110 /* AppKit.framework in Frameworks */,
+				6096DA901CB7F39200A8A110 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6096DA811CB7F39200A8A110 = {
+			isa = PBXGroup;
+			children = (
+				6096DA911CB7F39200A8A110 /* SnapshotsPeek */,
+				6096DA9E1CB7F6AD00A8A110 /* Xcode Headers */,
+				6096DA8C1CB7F39200A8A110 /* Frameworks */,
+				6096DA8B1CB7F39200A8A110 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6096DA8B1CB7F39200A8A110 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6096DA8A1CB7F39200A8A110 /* SnapshotsPeek.xcplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6096DA8C1CB7F39200A8A110 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6096DA8D1CB7F39200A8A110 /* AppKit.framework */,
+				6096DA8F1CB7F39200A8A110 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6096DA911CB7F39200A8A110 /* SnapshotsPeek */ = {
+			isa = PBXGroup;
+			children = (
+				60F5E6291CB7FADF000F3A15 /* Util */,
+				60F5E6281CB7FAD8000F3A15 /* Plugin */,
+				6096DA981CB7F39300A8A110 /* Info.plist */,
+				6096DA921CB7F39300A8A110 /* Supporting Files */,
+			);
+			path = SnapshotsPeek;
+			sourceTree = "<group>";
+		};
+		6096DA921CB7F39300A8A110 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6096DA931CB7F39300A8A110 /* SnapshotsPeek.xcscheme */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6096DA9E1CB7F6AD00A8A110 /* Xcode Headers */ = {
+			isa = PBXGroup;
+			children = (
+				60F5E62A1CB7FB39000F3A15 /* XcodeRuntime.h */,
+			);
+			name = "Xcode Headers";
+			path = XcodeHeaders;
+			sourceTree = "<group>";
+		};
+		60F5E6281CB7FAD8000F3A15 /* Plugin */ = {
+			isa = PBXGroup;
+			children = (
+				6096DA951CB7F39300A8A110 /* SnapshotsPeek.h */,
+				6096DA961CB7F39300A8A110 /* SnapshotsPeek.m */,
+				60F5E62E1CB80644000F3A15 /* SnapshotSnapGalleryView.h */,
+				60F5E62F1CB80644000F3A15 /* SnapshotSnapGalleryView.m */,
+			);
+			name = Plugin;
+			sourceTree = "<group>";
+		};
+		60F5E6291CB7FADF000F3A15 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				6096DAA71CB7F72E00A8A110 /* NSObject+ORSPSwizzleMethods.h */,
+				6096DAA81CB7F72E00A8A110 /* NSObject+ORSPSwizzleMethods.m */,
+				60F5E62B1CB7FD49000F3A15 /* NSFileManager+RecursiveFind.h */,
+				60F5E62C1CB7FD49000F3A15 /* NSFileManager+RecursiveFind.m */,
+				6096DAAB1CB7F7BE00A8A110 /* IDEEditorContext+NavigationInsertion.m */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6096DA891CB7F39200A8A110 /* SnapshotsPeek */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6096DA9B1CB7F39300A8A110 /* Build configuration list for PBXNativeTarget "SnapshotsPeek" */;
+			buildPhases = (
+				6096DA861CB7F39200A8A110 /* Sources */,
+				6096DA871CB7F39200A8A110 /* Resources */,
+				6096DA881CB7F39200A8A110 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SnapshotsPeek;
+			productName = SnapshotsPeek;
+			productReference = 6096DA8A1CB7F39200A8A110 /* SnapshotsPeek.xcplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6096DA821CB7F39200A8A110 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Orta;
+				TargetAttributes = {
+					6096DA891CB7F39200A8A110 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = 6096DA851CB7F39200A8A110 /* Build configuration list for PBXProject "SnapshotsPeek" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6096DA811CB7F39200A8A110;
+			productRefGroup = 6096DA8B1CB7F39200A8A110 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6096DA891CB7F39200A8A110 /* SnapshotsPeek */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6096DA871CB7F39200A8A110 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6096DA941CB7F39300A8A110 /* SnapshotsPeek.xcscheme in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6096DA861CB7F39200A8A110 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60F5E62D1CB7FD49000F3A15 /* NSFileManager+RecursiveFind.m in Sources */,
+				6096DA971CB7F39300A8A110 /* SnapshotsPeek.m in Sources */,
+				6096DAA91CB7F72E00A8A110 /* NSObject+ORSPSwizzleMethods.m in Sources */,
+				60F5E6301CB80644000F3A15 /* SnapshotSnapGalleryView.m in Sources */,
+				6096DAAC1CB7F7BE00A8A110 /* IDEEditorContext+NavigationInsertion.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6096DA991CB7F39300A8A110 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		6096DA9A1CB7F39300A8A110 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+			};
+			name = Release;
+		};
+		6096DA9C1CB7F39300A8A110 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				INFOPLIST_FILE = SnapshotsPeek/Info.plist;
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.orta.SnapshotsPeek;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Debug;
+		};
+		6096DA9D1CB7F39300A8A110 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				INFOPLIST_FILE = SnapshotsPeek/Info.plist;
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.orta.SnapshotsPeek;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6096DA851CB7F39200A8A110 /* Build configuration list for PBXProject "SnapshotsPeek" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6096DA991CB7F39300A8A110 /* Debug */,
+				6096DA9A1CB7F39300A8A110 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6096DA9B1CB7F39300A8A110 /* Build configuration list for PBXNativeTarget "SnapshotsPeek" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6096DA9C1CB7F39300A8A110 /* Debug */,
+				6096DA9D1CB7F39300A8A110 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6096DA821CB7F39200A8A110 /* Project object */;
+}
