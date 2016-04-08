@@ -48,15 +48,23 @@
 {
     [self.subviews.copy makeObjectsPerformSelector:@selector(removeFromSuperview)];
 
-    for (NSImage *image in images) {
-        NSInteger index = [images indexOfObject:image];
+    CGFloat margin = 20;
+    CGFloat offset = 0;
 
-        NSImageView *imageView = [[NSImageView alloc] initWithFrame:CGRectMake(index * 80, 0, 80, 80)];
+    for (NSImage *image in images) {
+        CGFloat aspectRatio = image.size.width / image.size.height;
+        CGFloat width = MIN(aspectRatio * 80, 120);
+        CGFloat x = offset + margin;
+
+        NSImageView *imageView = [[NSImageView alloc] initWithFrame:CGRectMake(x, 0, width, 80)];
         imageView.image = image;
         [self addSubview:imageView];
+
+        offset += width + margin;
     }
 
-    self.frame = CGRectMake(0, 0, images.count * 80, 80);
+    NSView *lastSubview = self.subviews.lastObject;
+    self.frame = CGRectMake(0, 0, CGRectGetMaxX(lastSubview.frame), 80);
 }
 
 - (void)fadeAndRemove

@@ -82,6 +82,9 @@ static SnapshotsPeek *sharedPlugin;
     // Clean up after ourselves to avoid over-retaining
     objc_setAssociatedObject(scrollView, @selector(editorScrollViewDidScroll:), nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center removeObserver:self name:NSScrollViewWillStartLiveScrollNotification object:scrollView];
+
     [view fadeAndRemove];
 }
 
@@ -131,12 +134,5 @@ static SnapshotsPeek *sharedPlugin;
 {
     return [NSFileManager defaultManager];
 }
-
-
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 
 @end
