@@ -5,12 +5,7 @@
 
 @class IDEViewController, IDESourceCodeEditor;
 
-@interface IDESourceCodeEditorContainerView : DVTLayoutView_ML
-{
-    IDESourceCodeEditor *_editor;
-    IDEViewController *_toolbarViewController;
-}
-@end
+@interface IDESourceCodeEditorContainerView : DVTLayoutView_ML @end
 
 @interface DVTViewController : NSViewController
 @end

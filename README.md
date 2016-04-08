@@ -2,7 +2,7 @@
 
 ### An Xcode Plugin to give you a preview of the class you're looking at when using FBSnapshots
 
-![Screenshot](https://raw.githubusercontent.com/orta/SnapshotsPeek/master/web/snapshot-peek.jpg)
+![Screenshot](https://raw.githubusercontent.com/orta/Snapshots-Peek/master/web/snapshot-peek.jpg)
 
 #### Main Features
 
