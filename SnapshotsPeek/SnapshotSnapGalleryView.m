@@ -10,6 +10,7 @@
 
 @interface SnapshotSnapGalleryView()
 @property (nonatomic, strong) dispatch_queue_t queue;
+@property (nonatomic, strong) NSTrackingArea *trackingArea;
 @end
 
 @implementation SnapshotSnapGalleryView
@@ -20,9 +21,29 @@
     if (!self) { return nil; }
 
     self.queue = dispatch_queue_create("io.orta.snapshots_peek_image_queue", DISPATCH_QUEUE_SERIAL);
+    self.trackingArea = [[NSTrackingArea alloc] initWithRect:NSZeroRect options:NSTrackingInVisibleRect | NSTrackingActiveAlways | NSTrackingMouseMoved | NSTrackingMouseEnteredAndExited owner:self userInfo:nil];
     self.wantsLayer = YES;
 
     return self;
+}
+
+// Ensure that we get frame changes
+
+- (void)viewDidMoveToWindow
+{
+    [super viewDidMoveToWindow];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowResized) name:
+     NSWindowWillStartLiveResizeNotification object:self.window];
+}
+
+- (void)windowResized
+{
+    self.frame = CGRectMake(0, 0, CGRectGetWidth(self.superview.bounds), [self maxDimension]);
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 /// NSURL -> NSImage
@@ -42,30 +63,77 @@
     });
 }
 
-// NSImage -> NSImageView
+// NSImage -> CALayer
 
 - (void)updateWithImages:(NSArray <NSImage *>*)images
 {
+    [self setAlphaValue:0];
+    [self.animator setAlphaValue:1];
+
     [self.subviews.copy makeObjectsPerformSelector:@selector(removeFromSuperview)];
 
-    CGFloat margin = 20;
-    CGFloat offset = 0;
-
     for (NSImage *image in images) {
-        CGFloat aspectRatio = image.size.width / image.size.height;
-        CGFloat width = MIN(aspectRatio * 80, 120);
-        CGFloat x = offset + margin;
-
-        NSImageView *imageView = [[NSImageView alloc] initWithFrame:CGRectMake(x, 0, width, 80)];
-        imageView.image = image;
-        [self addSubview:imageView];
-
-        offset += width + margin;
+        CALayer *layer = [CALayer layer];
+        layer.contents = image;
+        [self.layer addSublayer:layer];
     }
 
-    NSView *lastSubview = self.subviews.lastObject;
-    self.frame = CGRectMake(0, 0, CGRectGetMaxX(lastSubview.frame), 80);
+    [self updateLayersWithMouseXLocation:100000];
+    self.frame = CGRectMake(0, 0, CGRectGetWidth(self.superview.bounds), [self maxDimension]);
 }
+
+- (CGFloat)maxDimension
+{
+    return CGRectGetHeight(self.superview.bounds) / 2;
+}
+
+// Taken from my ActionScript 3 Dock implementation:
+// https://github.com/orta/virtualapps/blob/master/src/dock/Dock.as#L139
+
+// Lays out the screenshots with a dock-like animation
+
+- (void)updateLayersWithMouseXLocation:(CGFloat)mouseX
+{
+    CGFloat totalPixelsOfCurve = 700;
+    CGFloat maxDimension = [self maxDimension];
+    CGFloat bottomScale = 0.3;
+
+    CGFloat halfPixelsOfCurve = totalPixelsOfCurve / 2;
+    CGFloat itemMargin = 20;
+    CGFloat offset = 0;
+
+    for (CALayer *layer in self.layer.sublayers) {
+        NSImage *image = layer.contents;
+        CGFloat aspectRatio = image.size.width / image.size.height;
+
+        CGFloat distanceFromMouseX = CGRectGetMidX(layer.frame) - mouseX;
+        CGFloat scale = bottomScale;
+
+        /// Support fancy dock-like animation
+        if ((distanceFromMouseX < halfPixelsOfCurve) && (distanceFromMouseX > (halfPixelsOfCurve * -1))) {
+
+            CGFloat curvedDistanceFromMouseX = ((distanceFromMouseX / halfPixelsOfCurve) * 90) + 90;
+            CGFloat radians = curvedDistanceFromMouseX * (M_PI / 180.0);
+            CGFloat newScale = sin(radians);
+
+            if(newScale > 1) newScale = 1;
+            if(newScale < bottomScale) newScale = bottomScale;
+            scale = newScale;
+        }
+
+        CGFloat coreWidth = scale * maxDimension;
+
+        CGFloat width = MIN(aspectRatio * coreWidth, maxDimension);
+        CGFloat height = MIN(maxDimension * scale,  maxDimension / aspectRatio );
+
+        CGFloat x = offset + itemMargin;
+
+        layer.frame = CGRectMake(x, 0, width, height);
+        offset += width + itemMargin;
+    }
+}
+
+/// Fades out, then removes the view
 
 - (void)fadeAndRemove
 {
@@ -76,6 +144,33 @@
         [self.subviews.copy makeObjectsPerformSelector:@selector(removeFromSuperview)];
         [self removeFromSuperview];
     });
+}
+
+/// Lets the view do mouse tracking
+
+- (void)updateTrackingAreas
+{
+    [super updateTrackingAreas];
+    if (![[self trackingAreas] containsObject:self.trackingArea]) {
+        [self addTrackingArea:self.trackingArea];
+    }
+}
+
+/// Converts the window location into one
+/// relative to the view
+
+- (void)mouseMoved:(NSEvent *)event
+{
+    NSPoint location = [self convertPoint:event.locationInWindow toView:self.superview];
+    CGFloat xOffset = [self convertRect:self.bounds fromView:nil].origin.x;
+    [self updateLayersWithMouseXLocation:location.x + xOffset];
+}
+
+/// Resets the dock-like animation
+
+- (void)mouseExited:(NSEvent *)theEvent
+{
+    [self updateLayersWithMouseXLocation:100000];
 }
 
 @end
