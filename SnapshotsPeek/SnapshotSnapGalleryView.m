@@ -94,8 +94,8 @@
 
 - (void)updateLayersWithMouseXLocation:(CGFloat)mouseX
 {
-    CGFloat totalPixelsOfCurve = 700;
     CGFloat maxDimension = [self maxDimension];
+    CGFloat totalPixelsOfCurve = maxDimension * 1.2;
     CGFloat bottomScale = 0.3;
 
     CGFloat halfPixelsOfCurve = totalPixelsOfCurve / 2;
