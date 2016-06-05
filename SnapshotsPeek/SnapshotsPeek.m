@@ -45,6 +45,9 @@ static SnapshotsPeek *sharedPlugin;
 
 - (void)editorContext:(IDEEditorContext *)editorContext didOpenItem:(id)item
 {
+    NSInteger ourGalleryViewTag = 232323;
+
+    if ([editorContext.editor.mainScrollView viewWithTag:ourGalleryViewTag]) return;
     if (![item respondsToSelector:@selector(name)]) return;
 
     NSString *filename = [item name];
@@ -61,6 +64,7 @@ static SnapshotsPeek *sharedPlugin;
         dispatch_sync(dispatch_get_main_queue(), ^{
 
             SnapshotSnapGalleryView *galleryView = [[SnapshotSnapGalleryView alloc] init];
+            galleryView.tag = ourGalleryViewTag;
             [galleryView updateWithURLs:referenceImagesForFile];
 
             NSView *editorScrollView = editorContext.editor.mainScrollView;
