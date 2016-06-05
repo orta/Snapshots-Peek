@@ -133,6 +133,11 @@
     }
 }
 
+- (NSView *)hitTest:(NSPoint)aPoint
+{
+    return nil;
+}
+
 /// Fades out, then removes the view
 
 - (void)fadeAndRemove
